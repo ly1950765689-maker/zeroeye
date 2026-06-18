@@ -15,6 +15,20 @@
 
 ## Monitoring
 
+### Diagnostic Metadata Diff
+
+Use `tools/diagnostic_diff.py` to compare two build diagnostic metadata JSON
+files before submitting a PR. The tool highlights module-level changes that are
+hard to review by hand in `diagnostic/build-*.json` files.
+
+```bash
+python3 tools/diagnostic_diff.py diagnostic/build-old.json diagnostic/build-new.json
+python3 tools/diagnostic_diff.py --json diagnostic/build-old.json diagnostic/build-new.json
+```
+
+The report includes added and removed modules, status changes, duration deltas,
+command changes when command metadata is present, and artifact name changes.
+
 ### Health Check Endpoints
 
 Each service exposes a health check endpoint:
